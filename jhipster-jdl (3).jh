@@ -1,0 +1,21 @@
+
+entity Team {
+	name String required,
+	imagePath String
+}
+
+entity Phase {
+	name String required
+}
+entity MatchGroup {
+	name String required
+}
+
+paginate Phase, MatchGroup with infinite-scroll
+paginate Team with pagination
+
+dto * with mapstruct
+
+service Team,Phase, MatchGroup with serviceClass
+
+	

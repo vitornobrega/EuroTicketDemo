@@ -1,0 +1,22 @@
+{
+    "euroTicketDemoApp": {
+        "matchGroup" : {
+            "home": {
+                "title": "Match Groups",
+                "createLabel": "Crear nuevo Match Group",
+                "createOrEditLabel": "Crear o editar Match Group",
+                "search": "Search for Match Group"
+            },
+            "created": "Un nuevo Match Group ha sido creado con el identificador {{ param }}",
+            "updated": "Un Match Group ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Match Group ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Match Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Match Group"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -17,7 +17,7 @@
                 "title": "Team"
             },
             "name": "Name",
-            "imagePath": "Image"
+            "imagePath": "Image Path"
         }
     }
 }

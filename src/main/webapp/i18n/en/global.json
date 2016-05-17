@@ -8,6 +8,8 @@
             "entities": {
                 "main": "Entities",
                 "team": "Team",
+                "phase": "Phase",
+                "matchGroup": "Match Group",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

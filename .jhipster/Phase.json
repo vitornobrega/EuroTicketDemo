@@ -8,15 +8,10 @@
       "fieldValidateRules": [
         "required"
       ]
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "imagePath",
-      "fieldType": "String"
     }
   ],
-  "changelogDate": "20160517213847",
+  "changelogDate": "20160517213848",
   "dto": "mapstruct",
-  "pagination": "pagination",
+  "pagination": "infinite-scroll",
   "service": "serviceClass"
 }

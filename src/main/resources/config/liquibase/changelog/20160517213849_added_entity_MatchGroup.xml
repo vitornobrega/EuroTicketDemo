@@ -14,10 +14,10 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Team.
+        Added the entity MatchGroup.
     -->
-    <changeSet id="20160517201930-1" author="jhipster">
-        <createTable tableName="team">
+    <changeSet id="20160517213849-1" author="jhipster">
+        <createTable tableName="match_group">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -25,16 +25,8 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="image_path" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-                <loadData encoding="UTF-8"
-                  file="config/liquibase/teams.csv"
-                  separator=";"
-                  tableName="team"/>
         
     </changeSet>
 </databaseChangeLog>
