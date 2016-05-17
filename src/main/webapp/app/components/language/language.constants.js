@@ -10,10 +10,7 @@
          */
         .constant('LANGUAGES', [
             'pt-pt',
-            'en',
-            'fr',
-            'it',
-            'es'
+            'en'
             // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
         ]
     );

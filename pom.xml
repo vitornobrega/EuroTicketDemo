@@ -20,10 +20,6 @@
             <id>spring-milestones</id>
             <url>http://repo.spring.io/milestone</url>
         </repository>
-        <repository>
-            <id>Local-lib</id>
-            <url>file://${project.basedir}/lib</url>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -147,6 +143,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.hazelcast</groupId>
@@ -255,9 +252,8 @@
             <version>${javax.inject.version}</version>
         </dependency>
         <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>ojdbc</artifactId>
-            <version>7</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
@@ -584,12 +580,12 @@
                 <configuration>
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver>org.h2.Driver</driver>
-                    <url>jdbc:h2:file:./target/h2db/db/euroticketdemo</url>
-                    <defaultSchemaName></defaultSchemaName>
-                    <username>EuroTicketDemo</username>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/EuroTicketDemo</url>
+                    <defaultSchemaName>EuroTicketDemo</defaultSchemaName>
+                    <username>root</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.euroticket.app.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.euroticket.app.domain?dialect=org.hibernate.dialect.MySQLInnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

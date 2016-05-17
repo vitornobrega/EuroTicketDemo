@@ -10,12 +10,12 @@
     "clusteredHttpSession": "hazelcast",
     "websocket": "spring-websocket",
     "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
-    "prodDatabaseType": "oracle",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
     "searchEngine": "elasticsearch",
     "buildTool": "maven",
     "enableSocialSignIn": false,
-    "jwtSecretKey": "45d3141344d2faa8b80c2c5b67a88823003097bd",
+    "jwtSecretKey": "8de27c68bee41cef33d70c3230f01bb7f2f73238",
     "useSass": false,
     "applicationType": "monolith",
     "testFrameworks": [
@@ -26,10 +26,7 @@
     "nativeLanguage": "pt-pt",
     "languages": [
       "pt-pt",
-      "en",
-      "fr",
-      "it",
-      "es"
+      "en"
     ]
   }
 }
