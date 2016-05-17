@@ -1,0 +1,15 @@
+version: '2'
+services:
+    euroticketdemo-app:
+        image: euroticketdemo
+        external_links:
+            - euroticketdemo-elasticsearch:elasticsearch
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=elasticsearch:9300
+        ports:
+            - 8080:8080
+    euroticketdemo-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: euroticketdemo-elasticsearch
