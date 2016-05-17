@@ -1,2 +1,2 @@
 # EuroTicketDemo
-Application to buy tickets
+Application to buy football tickets
