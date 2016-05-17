@@ -1,0 +1,23 @@
+{
+    "euroTicketDemoApp": {
+        "team" : {
+            "home": {
+                "title": "Teams",
+                "createLabel": "Criar um(a) novo(a) Team",
+                "createOrEditLabel": "Criar ou editar um(a) Team",
+                "search": "Search for Team"
+            },
+            "created": "A new Team is created with identifier {{ param }}",
+            "updated": "A Team is updated with identifier {{ param }}",
+            "deleted": "A Team is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Team {{ id }}?"
+            },
+            "detail": {
+                "title": "Team"
+            },
+            "name": "Name",
+            "imagePath": "Image Path"
+        }
+    }
+}

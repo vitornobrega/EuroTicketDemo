@@ -1,0 +1,71 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "homeTeam",
+      "otherEntityName": "team",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "ticket"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "awayTeam",
+      "otherEntityName": "team",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "ticket"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "matchGroup",
+      "otherEntityName": "matchGroup",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "ticket"
+    },
+    {
+      "relationshipId": 4,
+      "relationshipName": "phase",
+      "otherEntityName": "phase",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "ticket"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "matchDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "unitPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "availableQtt",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "totalQtt",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "changelogDate": "20160517232102",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no"
+}

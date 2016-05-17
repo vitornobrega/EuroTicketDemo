@@ -1,0 +1,97 @@
+<div>
+    <h2 translate="euroTicketDemoApp.ticket.home.title">Tickets</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="ticket.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="euroTicketDemoApp.ticket.home.createLabel">
+                        Create new Ticket
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'euroTicketDemoApp.ticket.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.homeTeam">Home Team</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.awayTeam">Away Team</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ticket in vm.tickets track by ticket.id">
+                    <td><a ui-sref="ticket-detail({id:ticket.id})">{{ticket.id}}</a></td>
+                    <td>{{ticket.location}}</td>
+                    <td>{{ticket.matchDate | date:'medium'}}</td>
+                    <td>{{ticket.unitPrice}}</td>
+                    <td>{{ticket.availableQtt}}</td>
+                    <td>{{ticket.totalQtt}}</td>
+                    <td>
+                        <a ui-sref="team-detail({id:ticket.homeTeamId})">{{ticket.homeTeamId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="team-detail({id:ticket.awayTeamId})">{{ticket.awayTeamId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="match-group-detail({id:ticket.matchGroupId})">{{ticket.matchGroupId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="phase-detail({id:ticket.phaseId})">{{ticket.phaseId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="ticket-detail({id:ticket.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ticket.edit({id:ticket.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ticket.delete({id:ticket.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

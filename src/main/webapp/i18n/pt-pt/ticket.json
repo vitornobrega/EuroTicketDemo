@@ -1,0 +1,30 @@
+{
+    "euroTicketDemoApp": {
+        "ticket" : {
+            "home": {
+                "title": "Tickets",
+                "createLabel": "Criar um(a) novo(a) Ticket",
+                "createOrEditLabel": "Criar ou editar um(a) Ticket",
+                "search": "Search for Ticket"
+            },
+            "created": "A new Ticket is created with identifier {{ param }}",
+            "updated": "A Ticket is updated with identifier {{ param }}",
+            "deleted": "A Ticket is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Ticket {{ id }}?"
+            },
+            "detail": {
+                "title": "Ticket"
+            },
+            "location": "Location",
+            "matchDate": "Match Date",
+            "unitPrice": "Unit Price",
+            "availableQtt": "Available Qtt",
+            "totalQtt": "Total Qtt",
+            "homeTeam": "Home Team",
+            "awayTeam": "Away Team",
+            "matchGroup": "Match Group",
+            "phase": "Phase"
+        }
+    }
+}

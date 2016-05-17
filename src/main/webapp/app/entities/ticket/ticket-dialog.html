@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTicketLabel" translate="euroTicketDemoApp.ticket.home.createOrEditLabel">Create or edit a Ticket</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ticket.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ticket.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.ticket.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.ticket.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.ticket.matchDate" for="field_matchDate">Match Date</label>
+                <div class="input-group">
+                    <input id="field_matchDate" type="text" class="form-control" name="matchDate" datetime-picker="{{dateformat}}" ng-model="vm.ticket.matchDate" is-open="vm.datePickerOpenStatus.matchDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('matchDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.ticket.unitPrice" for="field_unitPrice">Unit Price</label>
+            <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                    ng-model="vm.ticket.unitPrice"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.ticket.availableQtt" for="field_availableQtt">Available Qtt</label>
+            <input type="number" class="form-control" name="availableQtt" id="field_availableQtt"
+                    ng-model="vm.ticket.availableQtt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.ticket.totalQtt" for="field_totalQtt">Total Qtt</label>
+            <input type="number" class="form-control" name="totalQtt" id="field_totalQtt"
+                    ng-model="vm.ticket.totalQtt"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="euroTicketDemoApp.ticket.homeTeam" for="field_homeTeam">Home Team</label>
+            <select class="form-control" id="field_homeTeam" name="homeTeam" ng-model="vm.ticket.homeTeamId" ng-options="team.id as team.id for team in vm.hometeams | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="euroTicketDemoApp.ticket.awayTeam" for="field_awayTeam">Away Team</label>
+            <select class="form-control" id="field_awayTeam" name="awayTeam" ng-model="vm.ticket.awayTeamId" ng-options="team.id as team.id for team in vm.awayteams | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="euroTicketDemoApp.ticket.matchGroup" for="field_matchGroup">Match Group</label>
+            <select class="form-control" id="field_matchGroup" name="matchGroup" ng-model="vm.ticket.matchGroupId" ng-options="matchGroup.id as matchGroup.id for matchGroup in vm.matchgroups | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="euroTicketDemoApp.ticket.phase" for="field_phase">Phase</label>
+            <select class="form-control" id="field_phase" name="phase" ng-model="vm.ticket.phaseId" ng-options="phase.id as phase.id for phase in vm.phases | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
