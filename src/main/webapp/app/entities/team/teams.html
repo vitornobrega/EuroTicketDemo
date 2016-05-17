@@ -36,16 +36,18 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="euroTicketDemoApp.team.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="imagePath"><span translate="euroTicketDemoApp.team.imagePath">Image Path</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="euroTicketDemoApp.team.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="team in vm.teams track by team.id">
                     <td><a ui-sref="team-detail({id:team.id})">{{team.id}}</a></td>
-                    <td>{{team.name}}</td>
-                    <td>{{team.imagePath}}</td>
+                   
+                        <td><img width="100", height"30" src='{{team.imagePath}}' class="img-responsive img-rounded"/></td>
+                         <td>{{team.name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
