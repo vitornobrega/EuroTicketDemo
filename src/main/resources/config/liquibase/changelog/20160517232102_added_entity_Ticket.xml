@@ -42,20 +42,19 @@
             </column>
             
             <column name="home_team_id" type="bigint">
-                <constraints unique="true"/>
             </column>
             <column name="away_team_id" type="bigint">
-                <constraints unique="true"/>
             </column>
             <column name="match_group_id" type="bigint">
-                <constraints unique="true"/>
             </column>
             <column name="phase_id" type="bigint">
-                <constraints unique="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="ticket" columnName="match_date" columnDataType="datetime"/>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/ticket.csv"
+                  separator=";"
+                  tableName="ticket"/>
     </changeSet>
 </databaseChangeLog>

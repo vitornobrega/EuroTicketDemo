@@ -1,25 +1,26 @@
-﻿name;image_path
-Albânia;content/images/countries/al.png
-Alemanha;content/images/countries/de.png
-Áustria;content/images/countries/at.png
-Bélgica;content/images/countries/be.png
-Croácia;content/images/countries/hr.png
-Eslováquia;content/images/countries/sk.png
-Espanha;content/images/countries/es.png
-França;content/images/countries/fr.png
-Hungria;content/images/countries/hu.png
-Inglaterra;content/images/countries/gb.png
-Irlanda do Norte;content/images/countries/nordirland.png
-Islândia;content/images/countries/is.png
-Itália;content/images/countries/it.png
-País de Gales;content/images/countries/gb-wales.png
-Polónia;content/images/countries/pl.png
-Portugal;content/images/countries/pt.png
-República Checa;content/images/countries/cz.png
-República da Irlanda;content/images/countries/in.png
-România;content/images/countries/ro.png
-Rússia;content/images/countries/ru.png
-Suiça;content/images/countries/ch.png
-Suécia;content/images/countries/se.png
-Turquia;content/images/countries/tr.png
-Ucrânia;content/images/countries/ua.png
+id;name;image_path
+1;Albânia;content/images/countries/al.png
+2;Alemanha;content/images/countries/de.png
+3;Áustria;content/images/countries/at.png
+4;Bélgica;content/images/countries/be.png
+5;Croácia;content/images/countries/hr.png
+6;Eslováquia;content/images/countries/sk.png
+7;Espanha;content/images/countries/es.png
+8;França;content/images/countries/fr.png
+9;Hungria;content/images/countries/hu.png
+10;Inglaterra;content/images/countries/gb.png
+11;Irlanda do Norte;content/images/countries/nordirland.png
+12;Islândia;content/images/countries/is.png
+13;Itália;content/images/countries/it.png
+14;País de Gales;content/images/countries/gb-wales.png
+15;Polónia;content/images/countries/pl.png
+16;Portugal;content/images/countries/pt.png
+17;República Checa;content/images/countries/cz.png
+18;República da Irlanda;content/images/countries/in.png
+19;Roménia;content/images/countries/ro.png
+20;Rússia;content/images/countries/ru.png
+21;Suiça;content/images/countries/ch.png
+22;Suécia;content/images/countries/se.png
+23;Turquia;content/images/countries/tr.png
+24;Ucrânia;content/images/countries/ua.png
+25;NA;content/images/countries/ua.png
