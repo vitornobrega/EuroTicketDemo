@@ -1,0 +1,24 @@
+{
+    "euroTicketDemoApp": {
+        "item" : {
+            "home": {
+                "title": "Items",
+                "createLabel": "Criar um(a) novo(a) Item",
+                "createOrEditLabel": "Criar ou editar um(a) Item",
+                "search": "Search for Item"
+            },
+            "created": "A new Item is created with identifier {{ param }}",
+            "updated": "A Item is updated with identifier {{ param }}",
+            "deleted": "A Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Item"
+            },
+            "quantity": "Quantity",
+            "ticket": "Ticket",
+            "sale": "Sale"
+        }
+    }
+}

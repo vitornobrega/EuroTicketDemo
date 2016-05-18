@@ -1,0 +1,22 @@
+{
+    "euroTicketDemoApp": {
+        "saleStatus" : {
+            "home": {
+                "title": "Sale Statuses",
+                "createLabel": "Criar um(a) novo(a) Sale Status",
+                "createOrEditLabel": "Criar ou editar um(a) Sale Status",
+                "search": "Search for Sale Status"
+            },
+            "created": "A new Sale Status is created with identifier {{ param }}",
+            "updated": "A Sale Status is updated with identifier {{ param }}",
+            "deleted": "A Sale Status is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Sale Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Sale Status"
+            },
+            "name": "Name"
+        }
+    }
+}

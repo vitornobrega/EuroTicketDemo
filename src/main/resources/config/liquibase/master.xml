@@ -9,7 +9,12 @@
     <include file="classpath:config/liquibase/changelog/20160517232101_added_entity_MatchGroup.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160517232102_added_entity_Ticket.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160517232159_added_entity_Team.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160518000230_added_entity_Item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160518000231_added_entity_SaleStatus.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160518000232_added_entity_Sale.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160517232102_added_entity_constraints_Ticket.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160518000230_added_entity_constraints_Item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160518000232_added_entity_constraints_Sale.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

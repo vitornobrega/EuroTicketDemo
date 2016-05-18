@@ -1,0 +1,38 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "items",
+      "otherEntityName": "item",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "sale"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "saleStatus",
+      "otherEntityName": "saleStatus",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "sale"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "saleDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "changelogDate": "20160518000232",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no"
+}

@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="euroTicketDemoApp.item.detail.title">Item</span> {{vm.item.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="euroTicketDemoApp.item.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.item.quantity}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="euroTicketDemoApp.item.ticket">Ticket</span></dt>
+        <dd>
+            <a ui-sref="ticket-detail({id:vm.item.ticketId})">{{vm.item.ticketId}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="euroTicketDemoApp.item.sale">Sale</span></dt>
+        <dd>
+            <a ui-sref="sale-detail({id:vm.item.saleId})">{{vm.item.saleId}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

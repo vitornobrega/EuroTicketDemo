@@ -11,6 +11,9 @@
                 "matchGroup": "Match Group",
                 "ticket": "Ticket",
                 "team": "Team",
+                "item": "Item",
+                "saleStatus": "Sale Status",
+                "sale": "Sale",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

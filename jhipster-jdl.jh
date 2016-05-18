@@ -1,0 +1,73 @@
+
+entity Team {
+	name String required,
+	imagePath String
+}
+
+entity Phase {
+	name String required
+}
+entity MatchGroup {
+	name String required
+}
+
+entity Ticket {
+	location String,
+    matchDate ZonedDateTime
+    unitPrice BigDecimal,
+    availableQtt BigDecimal,
+    totalQtt BigDecimal
+}
+
+entity Item {
+	quantity Integer
+}
+
+entity SaleStatus {
+	name String
+}
+
+entity Sale {
+    saleDate ZonedDateTime
+}
+
+relationship OneToMany {
+  User{sales} to Sale
+}
+
+relationship OneToMany {
+  Sale{items} to Item
+}
+
+relationship OneToOne {
+    Sale{saleStatus} to SaleStatus
+}
+
+relationship OneToOne {
+    Item{ticket} to Ticket
+}
+
+relationship OneToOne {
+    Ticket{homeTeam} to Team
+}
+
+relationship OneToOne {
+    Ticket{awayTeam} to Team
+}
+
+relationship OneToOne {
+  Ticket{matchGroup} to MatchGroup
+}
+
+relationship OneToOne {
+  Ticket{phase} to Phase
+}
+
+paginate Phase, MatchGroup with infinite-scroll
+paginate Team with pagination
+
+dto * with mapstruct
+
+service Team,Phase, MatchGroup with serviceClass
+
+	

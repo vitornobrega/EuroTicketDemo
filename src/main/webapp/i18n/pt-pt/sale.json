@@ -1,0 +1,25 @@
+{
+    "euroTicketDemoApp": {
+        "sale" : {
+            "home": {
+                "title": "Sales",
+                "createLabel": "Criar um(a) novo(a) Sale",
+                "createOrEditLabel": "Criar ou editar um(a) Sale",
+                "search": "Search for Sale"
+            },
+            "created": "A new Sale is created with identifier {{ param }}",
+            "updated": "A Sale is updated with identifier {{ param }}",
+            "deleted": "A Sale is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Sale {{ id }}?"
+            },
+            "detail": {
+                "title": "Sale"
+            },
+            "saleDate": "Sale Date",
+            "items": "Items",
+            "saleStatus": "Sale Status",
+            "user": "User"
+        }
+    }
+}
