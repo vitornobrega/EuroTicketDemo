@@ -7,13 +7,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
-                "phase": "Phase",
-                "matchGroup": "Match Group",
-                "ticket": "Ticket",
-                "team": "Team",
+                "phase": "Fase",
+                "matchGroup": "Grupo",
+                "ticket": "Bilhete",
+                "team": "Equipa",
                 "item": "Item",
-                "saleStatus": "Sale Status",
-                "sale": "Sale",
+                "saleStatus": "Estado da Venda",
+                "sale": "Venda",
+                "buyTickets" : "Comprar Bilhetes",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,9 @@
+{
+    "euroTicketDemoApp": {
+        "buyTicket" : {
+            "home": {
+                "title": "Buy Ticket"
+            }
+        }
+    }
+}

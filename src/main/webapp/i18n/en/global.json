@@ -14,6 +14,7 @@
                 "item": "Item",
                 "saleStatus": "Sale Status",
                 "sale": "Sale",
+                 "buyTickets" : "Buy Tickets",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -53,7 +53,7 @@
                     <td><a ui-sref="ticket-detail({id:ticket.id})">{{ticket.id}}</a></td>
                     <td>{{ticket.location}}</td>
                     <td>{{ticket.matchDate | date:'medium'}}</td>
-                    <td>{{ticket.unitPrice}}&#8364;</td>
+                    <td>{{ticket.unitPrice | currency:'€' }}</td>
                     <td>{{ticket.availableQtt}}</td>
                     <td>{{ticket.totalQtt}}</td>
                     <td>
