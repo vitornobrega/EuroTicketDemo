@@ -50,25 +50,25 @@
 
         <div class="form-group">
             <label translate="euroTicketDemoApp.ticket.homeTeam" for="field_homeTeam">Home Team</label>
-            <select class="form-control" id="field_homeTeam" name="homeTeam" ng-model="vm.ticket.homeTeamId" ng-options="team.id as team.id for team in vm.hometeams | orderBy:'id'">
+            <select class="form-control" id="field_homeTeam" name="homeTeam" ng-model="vm.ticket.homeTeamId" ng-options="team.id as team.name for team in vm.hometeams | orderBy:'name'">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="euroTicketDemoApp.ticket.awayTeam" for="field_awayTeam">Away Team</label>
-            <select class="form-control" id="field_awayTeam" name="awayTeam" ng-model="vm.ticket.awayTeamId" ng-options="team.id as team.id for team in vm.awayteams | orderBy:'id'">
+            <select class="form-control" id="field_awayTeam" name="awayTeam" ng-model="vm.ticket.awayTeamId" ng-options="team.id as team.name for team in vm.awayteams | orderBy:'name'">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="euroTicketDemoApp.ticket.matchGroup" for="field_matchGroup">Match Group</label>
-            <select class="form-control" id="field_matchGroup" name="matchGroup" ng-model="vm.ticket.matchGroupId" ng-options="matchGroup.id as matchGroup.id for matchGroup in vm.matchgroups | orderBy:'id'">
+            <select class="form-control" id="field_matchGroup" name="matchGroup" ng-model="vm.ticket.matchGroupId" ng-options="matchGroup.id as matchGroup.name for matchGroup in vm.matchgroups | orderBy:'name'">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="euroTicketDemoApp.ticket.phase" for="field_phase">Phase</label>
-            <select class="form-control" id="field_phase" name="phase" ng-model="vm.ticket.phaseId" ng-options="phase.id as phase.id for phase in vm.phases | orderBy:'id'">
+            <select class="form-control" id="field_phase" name="phase" ng-model="vm.ticket.phaseId" ng-options="phase.id as phase.name for phase in vm.phases | orderBy:'name'">
                 <option value=""></option>
             </select>
         </div>

@@ -18,7 +18,7 @@
             }
             return SaleStatus.get({id : vm.sale.saleStatusId}).$promise;
         }).then(function(saleStatus) {
-            vm.salestatuses.push(saleStatus);
+            vm.salestatuss.push(saleStatus);
         });
         vm.users = User.query();
 
