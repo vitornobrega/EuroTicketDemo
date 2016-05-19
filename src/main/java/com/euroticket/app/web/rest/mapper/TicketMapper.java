@@ -16,6 +16,10 @@ public interface TicketMapper {
     @Mapping(source = "awayTeam.id", target = "awayTeamId")
     @Mapping(source = "matchGroup.id", target = "matchGroupId")
     @Mapping(source = "phase.id", target = "phaseId")
+    @Mapping(source = "homeTeam.name", target = "homeTeamName")
+    @Mapping(source = "awayTeam.name", target = "awayTeamName")
+    @Mapping(source = "matchGroup.name", target = "matchGroupName")
+    @Mapping(source = "phase.name", target = "phaseName")
     TicketDTO ticketToTicketDTO(Ticket ticket);
 
     List<TicketDTO> ticketsToTicketDTOs(List<Ticket> tickets);

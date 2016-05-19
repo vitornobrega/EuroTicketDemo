@@ -13,7 +13,10 @@ import java.util.List;
 public interface SaleMapper {
 
     @Mapping(source = "saleStatus.id", target = "saleStatusId")
+    @Mapping(source = "saleStatus.name", target = "saleStatusName")
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "user.firstName", target = "userFirstName")
+    @Mapping(source = "user.lastName", target = "userLastName")
     SaleDTO saleToSaleDTO(Sale sale);
 
     List<SaleDTO> salesToSaleDTOs(List<Sale> sales);

@@ -10,12 +10,12 @@
         <hr>
         <dt><span translate="euroTicketDemoApp.sale.saleStatus">Sale Status</span></dt>
         <dd>
-            <a ui-sref="sale-status-detail({id:vm.sale.saleStatusId})">{{vm.sale.saleStatusId}}</a>
+            <a ui-sref="sale-status-detail({id:vm.sale.saleStatusId})">{{vm.sale.saleStatusName}}</a>
         </dd>
         <hr>
         <dt><span translate="euroTicketDemoApp.sale.user">User</span></dt>
         <dd>
-            {{vm.sale.userId}}
+            {{vm.sale.userFirstName}} {{vm.sale.userLastName}}
         </dd>
         <hr>
     </dl>

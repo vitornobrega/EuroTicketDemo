@@ -34,6 +34,12 @@ public class TicketDTO implements Serializable {
     private Long awayTeamId;
     private Long matchGroupId;
     private Long phaseId;
+    
+    private String homeTeamName;
+    private String awayTeamName;
+    private String phaseName;
+    private String matchGroupName;
+    
     public Long getId() {
         return id;
     }
@@ -137,4 +143,38 @@ public class TicketDTO implements Serializable {
             ", totalQtt='" + totalQtt + "'" +
             '}';
     }
+
+	public String getHomeTeamName() {
+		return homeTeamName;
+	}
+
+	public void setHomeTeamName(String homeTeamName) {
+		this.homeTeamName = homeTeamName;
+	}
+
+	public String getAwayTeamName() {
+		return awayTeamName;
+	}
+
+	public void setAwayTeamName(String awayTeamName) {
+		this.awayTeamName = awayTeamName;
+	}
+
+	public String getPhaseName() {
+		return phaseName;
+	}
+
+	public void setPhaseName(String phaseName) {
+		this.phaseName = phaseName;
+	}
+
+	public String getMatchGroupName() {
+		return matchGroupName;
+	}
+
+	public void setMatchGroupName(String matchGroupName) {
+		this.matchGroupName = matchGroupName;
+	}
+    
+    
 }

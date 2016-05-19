@@ -15,7 +15,7 @@
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></dt>
         <dd>
-            <span>{{vm.ticket.unitPrice}}</span>
+            <span>{{vm.ticket.unitPrice}}&#8364;</span>
         </dd>
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></dt>
@@ -30,22 +30,22 @@
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.homeTeam">Home Team</span></dt>
         <dd>
-            <a ui-sref="team-detail({id:vm.ticket.homeTeamId})">{{vm.ticket.homeTeamId}}</a>
+            <a ui-sref="team-detail({id:vm.ticket.homeTeamId})">{{vm.ticket.homeTeamName}}</a>
         </dd>
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.awayTeam">Away Team</span></dt>
         <dd>
-            <a ui-sref="team-detail({id:vm.ticket.awayTeamId})">{{vm.ticket.awayTeamId}}</a>
+            <a ui-sref="team-detail({id:vm.ticket.awayTeamId})">{{vm.ticket.awayTeamName}}</a>
         </dd>
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></dt>
         <dd>
-            <a ui-sref="match-group-detail({id:vm.ticket.matchGroupId})">{{vm.ticket.matchGroupId}}</a>
+            <a ui-sref="match-group-detail({id:vm.ticket.matchGroupId})">{{vm.ticket.matchGroupName}}</a>
         </dd>
         <hr>
         <dt><span translate="euroTicketDemoApp.ticket.phase">Phase</span></dt>
         <dd>
-            <a ui-sref="phase-detail({id:vm.ticket.phaseId})">{{vm.ticket.phaseId}}</a>
+            <a ui-sref="phase-detail({id:vm.ticket.phaseId})">{{vm.ticket.phaseName}}</a>
         </dd>
         <hr>
     </dl>

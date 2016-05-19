@@ -47,10 +47,10 @@
                     <td><a ui-sref="sale-detail({id:sale.id})">{{sale.id}}</a></td>
                     <td>{{sale.saleDate | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="sale-status-detail({id:sale.saleStatusId})">{{sale.saleStatusId}}</a>
+                        <a ui-sref="sale-status-detail({id:sale.saleStatusId})">{{sale.saleStatusName}}</a>
                     </td>
                     <td>
-                        {{sale.userId}}
+                        {{sale.userFirstName}} {{sale.userLastName}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

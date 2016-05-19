@@ -19,6 +19,10 @@ public class SaleDTO implements Serializable {
 
     private Long saleStatusId;
     private Long userId;
+    private String saleStatusName;
+    private String userFirstName;
+    private String userLastName;
+    
     public Long getId() {
         return id;
     }
@@ -76,4 +80,34 @@ public class SaleDTO implements Serializable {
             ", saleDate='" + saleDate + "'" +
             '}';
     }
+
+	public String getSaleStatusName() {
+		return saleStatusName;
+	}
+
+	public void setSaleStatusName(String saleStatusName) {
+		this.saleStatusName = saleStatusName;
+	}
+
+	public String getUserFirstName() {
+		return userFirstName;
+	}
+
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
+
+	public String getUserLastName() {
+		return userLastName;
+	}
+
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
+
+
+	
+	
+    
+    
 }
