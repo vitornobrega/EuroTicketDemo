@@ -26,6 +26,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('buyTicket');
+                    $translatePartialLoader.addPart('ticket');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

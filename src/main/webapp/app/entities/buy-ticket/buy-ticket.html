@@ -1,5 +1,54 @@
 <div>
     <h2 translate="euroTicketDemoApp.buyTicket.home.title">Buy Ticket</h2>
+
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.homeTeam">Home Team</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.awayTeam">Away Team</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ticket in vm.availableTickets track by ticket.id">
+                    <td>{{ticket.location}}</td>
+                    <td>{{ticket.matchDate | date:'medium'}}</td>
+                    <td>{{ticket.unitPrice | currency:'€' }}</td>
+                    <td>{{ticket.availableQtt}}</td>
+                    <td>{{ticket.totalQtt}}</td>
+                    <td>
+                        <a ui-sref="team-detail({id:ticket.homeTeamId})">{{ticket.homeTeamName}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="team-detail({id:ticket.awayTeamId})">{{ticket.awayTeamName}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="match-group-detail({id:ticket.matchGroupId})">{{ticket.matchGroupName}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="phase-detail({id:ticket.phaseId})">{{ticket.phaseName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script>
