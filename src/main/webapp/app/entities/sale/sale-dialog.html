@@ -1,3 +1,4 @@
+
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <div class="modal-header">
@@ -25,13 +26,19 @@
 
         <div class="form-group">
             <label translate="euroTicketDemoApp.sale.saleStatus" for="field_saleStatus">Sale Status</label>
-            <select class="form-control" id="field_saleStatus" name="saleStatus" ng-model="vm.sale.saleStatusId" ng-options="saleStatus.id as saleStatus.name for saleStatus in vm.salestatuss | orderBy:'name'">
+            <select class="form-control" id="field_saleStatus" name="saleStatus" ng-model="vm.sale.saleStatusId" ng-options="saleStatus.id as saleStatus.id for saleStatus in vm.salestatuses | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="euroTicketDemoApp.sale.payment" for="field_payment">Payment</label>
+            <select class="form-control" id="field_payment" name="payment" ng-model="vm.sale.paymentId" ng-options="payment.id as payment.id for payment in vm.payments | orderBy:'id'">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="euroTicketDemoApp.sale.user" for="field_user">User</label>
-            <select class="form-control" id="field_user" name="user" ng-model="vm.sale.userId" ng-options='user.id as (user.firstName + " " + user.lastName) for user in vm.users'>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.sale.userId" ng-options="user.id as user.id for user in vm.users">
                 <option value=""></option>
             </select>
         </div>

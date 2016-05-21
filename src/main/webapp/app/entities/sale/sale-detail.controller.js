@@ -5,9 +5,9 @@
         .module('euroTicketDemoApp')
         .controller('SaleDetailController', SaleDetailController);
 
-    SaleDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Sale', 'Item', 'SaleStatus', 'User'];
+    SaleDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Sale', 'Item', 'SaleStatus', 'Payment', 'User'];
 
-    function SaleDetailController($scope, $rootScope, $stateParams, entity, Sale, Item, SaleStatus, User) {
+    function SaleDetailController($scope, $rootScope, $stateParams, entity, Sale, Item, SaleStatus, Payment, User) {
         var vm = this;
         vm.sale = entity;
         

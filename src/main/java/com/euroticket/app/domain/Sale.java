@@ -39,6 +39,10 @@ public class Sale implements Serializable {
     @JoinColumn(unique = true)
     private SaleStatus saleStatus;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Payment payment;
+
     @ManyToOne
     private User user;
 
@@ -72,6 +76,14 @@ public class Sale implements Serializable {
 
     public void setSaleStatus(SaleStatus saleStatus) {
         this.saleStatus = saleStatus;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public User getUser() {

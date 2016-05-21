@@ -1,0 +1,29 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "cardNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "monthAndYear",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "cvc",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "cardName",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160521095843",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no"
+}

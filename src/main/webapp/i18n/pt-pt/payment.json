@@ -1,0 +1,25 @@
+{
+    "euroTicketDemoApp": {
+        "payment" : {
+            "home": {
+                "title": "Payments",
+                "createLabel": "Criar um(a) novo(a) Payment",
+                "createOrEditLabel": "Criar ou editar um(a) Payment",
+                "search": "Search for Payment"
+            },
+            "created": "A new Payment is created with identifier {{ param }}",
+            "updated": "A Payment is updated with identifier {{ param }}",
+            "deleted": "A Payment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Payment"
+            },
+            "cardNumber": "Card Number",
+            "monthAndYear": "Month And Year",
+            "cvc": "Cvc",
+            "cardName": "Card Name"
+        }
+    }
+}

@@ -23,6 +23,13 @@ entity Item {
 	quantity Integer
 }
 
+entity Payment {
+	cardNumber String,
+    monthAndYear String,
+    cvc Integer,
+	cardName String
+}
+
 entity SaleStatus {
 	name String
 }
@@ -45,6 +52,10 @@ relationship OneToOne {
 
 relationship OneToOne {
     Item{ticket} to Ticket
+}
+
+relationship OneToOne {
+    Sale{payment} to Payment
 }
 
 relationship OneToOne {

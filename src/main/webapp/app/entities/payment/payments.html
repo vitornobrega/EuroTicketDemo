@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="euroTicketDemoApp.sale.home.title">Sales</h2>
+    <h2 translate="euroTicketDemoApp.payment.home.title">Payments</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="sale.new" >
+                <button class="btn btn-primary" ui-sref="payment.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  translate="euroTicketDemoApp.sale.home.createLabel">
-                        Create new Sale
+                    <span class="hidden-xs"  translate="euroTicketDemoApp.payment.home.createLabel">
+                        Create new Payment
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'euroTicketDemoApp.sale.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'euroTicketDemoApp.payment.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -36,42 +36,36 @@
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="euroTicketDemoApp.sale.saleDate">Sale Date</span></th>
-                    <th><span translate="euroTicketDemoApp.sale.saleStatus">Sale Status</span></th>
-                    <th><span translate="euroTicketDemoApp.sale.payment">Payment</span></th>
-                    <th><span translate="euroTicketDemoApp.sale.user">User</span></th>
+                    <th><span translate="euroTicketDemoApp.payment.cardNumber">Card Number</span></th>
+                    <th><span translate="euroTicketDemoApp.payment.monthAndYear">Month And Year</span></th>
+                    <th><span translate="euroTicketDemoApp.payment.cvc">Cvc</span></th>
+                    <th><span translate="euroTicketDemoApp.payment.cardName">Card Name</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="sale in vm.sales track by sale.id">
-                    <td><a ui-sref="sale-detail({id:sale.id})">{{sale.id}}</a></td>
-                    <td>{{sale.saleDate | date:'medium'}}</td>
-                    <td>
-                        <a ui-sref="sale-status-detail({id:sale.saleStatusId})">{{sale.saleStatusId}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="payment-detail({id:sale.paymentId})">{{sale.paymentId}}</a>
-                    </td>
-                    <td>
-                        {{sale.userId}}
-                    </td>
+                <tr ng-repeat="payment in vm.payments track by payment.id">
+                    <td><a ui-sref="payment-detail({id:payment.id})">{{payment.id}}</a></td>
+                    <td>{{payment.cardNumber}}</td>
+                    <td>{{payment.monthAndYear}}</td>
+                    <td>{{payment.cvc}}</td>
+                    <td>{{payment.cardName}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="sale-detail({id:sale.id})"
+                                    ui-sref="payment-detail({id:payment.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="sale.edit({id:sale.id})"
+                                    ui-sref="payment.edit({id:payment.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="sale.delete({id:sale.id})"
+                                    ui-sref="payment.delete({id:payment.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>

@@ -1,11 +1,23 @@
 package com.euroticket.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.euroticket.app.config.Constants;
+import com.euroticket.app.domain.Payment;
 import com.euroticket.app.domain.Sale;
+import com.euroticket.app.domain.SaleStatus;
+import com.euroticket.app.domain.User;
+import com.euroticket.app.repository.PaymentRepository;
 import com.euroticket.app.repository.SaleRepository;
+import com.euroticket.app.repository.SaleStatusRepository;
+import com.euroticket.app.repository.UserRepository;
 import com.euroticket.app.repository.search.SaleSearchRepository;
+import com.euroticket.app.security.SecurityUtils;
+import com.euroticket.app.service.SaleService;
+import com.euroticket.app.service.TeamService;
 import com.euroticket.app.web.rest.util.HeaderUtil;
 import com.euroticket.app.web.rest.dto.SaleDTO;
+import com.euroticket.app.web.rest.dto.TeamDTO;
+import com.euroticket.app.web.rest.mapper.PaymentMapper;
 import com.euroticket.app.web.rest.mapper.SaleMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +31,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -35,12 +49,28 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class SaleResource {
 
     private final Logger log = LoggerFactory.getLogger(SaleResource.class);
+    
+    @Inject
+    private SaleService saleService;
         
     @Inject
     private SaleRepository saleRepository;
     
     @Inject
+    private PaymentRepository paymentRepository;
+    
+    
+    @Inject
+    private UserRepository userRepository;
+    
+    @Inject
+    private SaleStatusRepository saleStatusRepository;
+    
+    @Inject
     private SaleMapper saleMapper;
+    
+    @Inject
+    private PaymentMapper paymentMapper;
     
     @Inject
     private SaleSearchRepository saleSearchRepository;
@@ -57,16 +87,13 @@ public class SaleResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<SaleDTO> createSale(@RequestBody SaleDTO saleDTO) throws URISyntaxException {
-        log.debug("REST request to save Sale : {}", saleDTO);
+    	log.debug("REST request to save Sale : {}", saleDTO);
         if (saleDTO.getId() != null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sale", "idexists", "A new sale cannot already have an ID")).body(null);
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("team", "idexists", "A new sale cannot already have an ID")).body(null);
         }
-        Sale sale = saleMapper.saleDTOToSale(saleDTO);
-        sale = saleRepository.save(sale);
-        SaleDTO result = saleMapper.saleToSaleDTO(sale);
-        saleSearchRepository.save(sale);
-        return ResponseEntity.created(new URI("/api/sales/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("sale", result.getId().toString()))
+        SaleDTO result = saleService.save(saleDTO);
+        return ResponseEntity.created(new URI("/api/teams/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("team", result.getId().toString()))
             .body(result);
     }
 
@@ -109,7 +136,7 @@ public class SaleResource {
     @Transactional(readOnly = true)
     public List<SaleDTO> getAllSales() {
         log.debug("REST request to get all Sales");
-        List<Sale> sales = saleRepository.findByUserIsCurrentUser();
+        List<Sale> sales = saleRepository.findAll();
         return saleMapper.salesToSaleDTOs(sales);
     }
 

@@ -18,6 +18,15 @@
     },
     {
       "relationshipId": 3,
+      "relationshipName": "payment",
+      "otherEntityName": "payment",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "sale"
+    },
+    {
+      "relationshipId": 4,
       "relationshipName": "user",
       "otherEntityName": "user",
       "relationshipType": "many-to-one",

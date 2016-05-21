@@ -19,6 +19,7 @@
             "saleDate": "Sale Date",
             "items": "Items",
             "saleStatus": "Sale Status",
+            "payment": "Payment",
             "user": "User"
         }
     }

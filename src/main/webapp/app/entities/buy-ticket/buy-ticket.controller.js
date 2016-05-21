@@ -5,12 +5,14 @@
         .module('euroTicketDemoApp')
         .controller('BuyTicketController', BuyTicketController);
 
-    BuyTicketController.$inject = ['$scope', '$state','Ticket'];
+    BuyTicketController.$inject = ['$scope', '$state','Ticket','Sale'];
 
-    function BuyTicketController ($scope, $state,Ticket) {
+    function BuyTicketController ($scope, $state,Ticket,Sale) {
         var vm = this;  
         vm.availableTickets = [];
         vm.addedTickets = [];
+        vm.sale = {};
+        vm.sale.payment = {};
         vm.cardDetails = {};
         vm.processStep = 'tickets';  
         //vm.processStep = 'payment';    
@@ -61,8 +63,29 @@
         };
 
         vm.finishPayment = function(){
+            var saleItems = [];
+             for(var i=0; i <vm.addedTickets.length; i++) {
+                var item  = {},
+                    ticket = vm.addedTickets[i];
+                item.quantity = ticket.quantity;
+                item.ticketId = ticket.id;
+                saleItems.push(item);
+           }
+            vm.sale.items = saleItems;
+            vm.sale.userId = 1;
+            //BuyTicket.createBuyTicket(saleDTO);
+            Sale.save(vm.sale, onSaveSuccess, onSaveError);
+        };
 
-        }
+        var onSaveSuccess = function (result) {
+          //  $scope.$emit('euroTicketDemoApp:saleUpdate', result);
+           // $uibModalInstance.close(result);
+            vm.isSaving = false;
+        };
+
+        var onSaveError = function () {
+            vm.isSaving = false;
+        };
     }
 
  

@@ -5,9 +5,9 @@
         .module('euroTicketDemoApp')
         .controller('SaleDialogController', SaleDialogController);
 
-    SaleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Sale', 'Item', 'SaleStatus', 'User'];
+    SaleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Sale', 'Item', 'SaleStatus', 'Payment', 'User'];
 
-    function SaleDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Sale, Item, SaleStatus, User) {
+    function SaleDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Sale, Item, SaleStatus, Payment, User) {
         var vm = this;
         vm.sale = entity;
         vm.items = Item.query();
@@ -18,7 +18,16 @@
             }
             return SaleStatus.get({id : vm.sale.saleStatusId}).$promise;
         }).then(function(saleStatus) {
-            vm.salestatuss.push(saleStatus);
+            vm.salestatuses.push(saleStatus);
+        });
+        vm.payments = Payment.query({filter: 'sale-is-null'});
+        $q.all([vm.sale.$promise, vm.payments.$promise]).then(function() {
+            if (!vm.sale.paymentId) {
+                return $q.reject();
+            }
+            return Payment.get({id : vm.sale.paymentId}).$promise;
+        }).then(function(payment) {
+            vm.payments.push(payment);
         });
         vm.users = User.query();
 

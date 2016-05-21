@@ -3,6 +3,7 @@ package com.euroticket.app.web.rest.dto;
 import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.Objects;
 
@@ -18,11 +19,9 @@ public class SaleDTO implements Serializable {
 
 
     private Long saleStatusId;
+    private PaymentDTO payment;
     private Long userId;
-    private String saleStatusName;
-    private String userFirstName;
-    private String userLastName;
-    
+    private List<ItemDTO> items;
     public Long getId() {
         return id;
     }
@@ -30,7 +29,26 @@ public class SaleDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public ZonedDateTime getSaleDate() {
+    
+    
+    public List<ItemDTO> getItems() {
+		return items;
+	}
+    
+    
+	public PaymentDTO getPayment() {
+		return payment;
+	}
+
+	public void setPayment(PaymentDTO payment) {
+		this.payment = payment;
+	}
+
+	public void setItems(List<ItemDTO> items) {
+		this.items = items;
+	}
+
+	public ZonedDateTime getSaleDate() {
         return saleDate;
     }
 
@@ -45,6 +63,7 @@ public class SaleDTO implements Serializable {
     public void setSaleStatusId(Long saleStatusId) {
         this.saleStatusId = saleStatusId;
     }
+
     public Long getUserId() {
         return userId;
     }
@@ -80,34 +99,4 @@ public class SaleDTO implements Serializable {
             ", saleDate='" + saleDate + "'" +
             '}';
     }
-
-	public String getSaleStatusName() {
-		return saleStatusName;
-	}
-
-	public void setSaleStatusName(String saleStatusName) {
-		this.saleStatusName = saleStatusName;
-	}
-
-	public String getUserFirstName() {
-		return userFirstName;
-	}
-
-	public void setUserFirstName(String userFirstName) {
-		this.userFirstName = userFirstName;
-	}
-
-	public String getUserLastName() {
-		return userLastName;
-	}
-
-	public void setUserLastName(String userLastName) {
-		this.userLastName = userLastName;
-	}
-
-
-	
-	
-    
-    
 }

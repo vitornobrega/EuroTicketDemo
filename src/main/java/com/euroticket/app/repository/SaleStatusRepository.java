@@ -10,5 +10,7 @@ import java.util.List;
  * Spring Data JPA repository for the SaleStatus entity.
  */
 public interface SaleStatusRepository extends JpaRepository<SaleStatus,Long> {
+	
+	
 
 }

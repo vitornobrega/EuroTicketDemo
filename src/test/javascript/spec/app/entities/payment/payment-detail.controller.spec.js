@@ -2,41 +2,33 @@
 
 describe('Controller Tests', function() {
 
-    describe('Sale Management Detail Controller', function() {
+    describe('Payment Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockSale, MockItem, MockSaleStatus, MockPayment, MockUser;
+        var MockEntity, MockPayment;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockSale = jasmine.createSpy('MockSale');
-            MockItem = jasmine.createSpy('MockItem');
-            MockSaleStatus = jasmine.createSpy('MockSaleStatus');
             MockPayment = jasmine.createSpy('MockPayment');
-            MockUser = jasmine.createSpy('MockUser');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'Sale': MockSale,
-                'Item': MockItem,
-                'SaleStatus': MockSaleStatus,
-                'Payment': MockPayment,
-                'User': MockUser
+                'Payment': MockPayment
             };
             createController = function() {
-                $injector.get('$controller')("SaleDetailController", locals);
+                $injector.get('$controller')("PaymentDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'euroTicketDemoApp:saleUpdate';
+                var eventType = 'euroTicketDemoApp:paymentUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

@@ -26,7 +26,10 @@
             </column>
             
             <column name="sale_status_id" type="bigint">
-                <constraints unique="false"/>
+       
+            </column>
+            <column name="payment_id" type="bigint">
+                <constraints unique="true"/>
             </column>
             <column name="user_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->

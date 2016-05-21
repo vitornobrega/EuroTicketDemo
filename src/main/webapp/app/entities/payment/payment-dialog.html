@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPaymentLabel" translate="euroTicketDemoApp.payment.home.createOrEditLabel">Create or edit a Payment</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.payment.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.payment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.payment.cardNumber" for="field_cardNumber">Card Number</label>
+            <input type="text" class="form-control" name="cardNumber" id="field_cardNumber"
+                    ng-model="vm.payment.cardNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.payment.monthAndYear" for="field_monthAndYear">Month And Year</label>
+            <input type="text" class="form-control" name="monthAndYear" id="field_monthAndYear"
+                    ng-model="vm.payment.monthAndYear"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.payment.cvc" for="field_cvc">Cvc</label>
+            <input type="number" class="form-control" name="cvc" id="field_cvc"
+                    ng-model="vm.payment.cvc"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="euroTicketDemoApp.payment.cardName" for="field_cardName">Card Name</label>
+            <input type="text" class="form-control" name="cardName" id="field_cardName"
+                    ng-model="vm.payment.cardName"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
