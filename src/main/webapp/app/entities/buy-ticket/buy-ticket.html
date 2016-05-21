@@ -1,47 +1,42 @@
 <div>
-    <h2 translate="euroTicketDemoApp.buyTicket.home.title">Buy Ticket</h2>
-
-    <div class="table-responsive">
+   <!-- <h2 translate="euroTicketDemoApp.buyTicket.home.title">Buy Ticket</h2>
+     <hr style="margin-top:0px; margin-bottom:20px;"> -->
+     <div ng-show="vm.processStep == 'tickets'">
+     <div >
+     <center>
+        <h3 style="margin-top:0px;" translate="euroTicketDemoApp.buyTicket.availableTickets">Available Tickets</h3>
+    </center>
+    <div class="table-responsive" style="height:170px;">
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
                     <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
                     <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
-                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
                     <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
-                    <th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th>
-                    <th><span translate="euroTicketDemoApp.ticket.homeTeam">Home Team</span></th>
-                    <th><span translate="euroTicketDemoApp.ticket.awayTeam">Away Team</span></th>
-                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <!--<th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th> -->
+                    <th><span translate="euroTicketDemoApp.ticket.game">Game</span></th>
                     <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="ticket in vm.availableTickets track by ticket.id">
+                <tr ng-repeat="ticket in vm.availableTickets | orderBy:'+id'">
                     <td>{{ticket.location}}</td>
                     <td>{{ticket.matchDate | date:'medium'}}</td>
-                    <td>{{ticket.unitPrice | currency:'€' }}</td>
                     <td>{{ticket.availableQtt}}</td>
-                    <td>{{ticket.totalQtt}}</td>
-                    <td>
-                        <a ui-sref="team-detail({id:ticket.homeTeamId})">{{ticket.homeTeamName}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="team-detail({id:ticket.awayTeamId})">{{ticket.awayTeamName}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="match-group-detail({id:ticket.matchGroupId})">{{ticket.matchGroupName}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="phase-detail({id:ticket.phaseId})">{{ticket.phaseName}}</a>
-                    </td>
+                  <!--  <td>{{ticket.totalQtt}}</td> -->
+                    <td>{{ticket.homeTeamName}} - {{ticket.awayTeamName}}</td>
+                    <td>{{ticket.phaseName}}</td>
+                    <td>{{ticket.matchGroupName}}</td>
+                     <td>{{ticket.unitPrice | currency:'€' }}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
+                            <button ng-click="vm.addTicketToShoppingCart(ticket)" type="submit"
                                     class="btn btn-success btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                                <span class="glyphicon glyphicon glyphicon-plus"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.add"></span>
                             </button>
                         </div>
                     </td>
@@ -49,6 +44,178 @@
             </tbody>
         </table>
     </div>
+    </div>
+         <div>
+     <center>
+        <h3 translate="euroTicketDemoApp.buyTicket.addedTickets">Added Tickets</h3>
+    </center>
+    <div class="table-responsive" style="height:130px;">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:100px;"><span translate="euroTicketDemoApp.ticket.quantity">Quantity</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
+                    <!--<th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th> -->
+                    <th><span translate="euroTicketDemoApp.ticket.game">Game</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="addedTicket in vm.addedTickets | orderBy:'+id'">
+                    <td style="width:100px;"> <input type="number" class="form-control" name="totalQtt" id="field_totalQtt"
+                    ng-model="addedTicket.quantity" ng-change="vm.onTicketQttChange(addedTicket)"/></td>
+                    <td>{{addedTicket.location}}</td>
+                    <td>{{addedTicket.matchDate | date:'medium'}}</td>
+                    <td>{{addedTicket.availableQtt}}</td>
+                    <td>{{addedTicket.homeTeamName}} - {{addedTicket.awayTeamName}}</td>
+                    <td>{{addedTicket.phaseName}}</td>
+                    <td>{{addedTicket.matchGroupName}}</td>
+                     <td>{{addedTicket.unitPrice | currency:'€' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                ng-click="vm.deleteTicketFromShoppingCart(addedTicket)"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon glyphicon-plus"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.remove"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div align="right">
+     <label translate="euroTicketDemoApp.buyTicket.totalPrice">Total Price</label>
+     <span>{{vm.totalPrice | currency:'€' }}</span>
+     </div>
+     <div align="right">
+     <button type="submit"
+            ng-disabled="vm.totalPrice == 0"
+            ng-click="vm.goToPayment()"
+            class="btn btn-info btn-sm">
+            <span class="hidden-xs hidden-sm" translate="euroTicketDemoApp.buyTicket.payment"></span>
+    </button>
+    </div>
+</div>
+</div>
+<div ng-show="vm.processStep == 'payment'">
+     <div >
+     <center>
+        <h3 style="margin-top:0px;" translate="euroTicketDemoApp.buyTicket.payment"></h3>
+    </center>
+    <br>
+        <div class="table-responsive" style="height:130px;">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:100px;"><span translate="euroTicketDemoApp.ticket.quantity">Quantity</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
+                    <!--<th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th> -->
+                    <th><span translate="euroTicketDemoApp.ticket.game">Game</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="addedTicket in vm.addedTickets | orderBy:'+id'">
+                    <td>{{addedTicket.quantity}}</td>
+                    <td>{{addedTicket.location}}</td>
+                    <td>{{addedTicket.matchDate | date:'medium'}}</td>
+                    <td>{{addedTicket.availableQtt}}</td>
+                    <td>{{addedTicket.homeTeamName}} - {{addedTicket.awayTeamName}}</td>
+                    <td>{{addedTicket.phaseName}}</td>
+                    <td>{{addedTicket.matchGroupName}}</td>
+                     <td>{{addedTicket.unitPrice | currency:'€' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div align="right">
+     <label translate="euroTicketDemoApp.buyTicket.totalPrice">Total Price</label>
+     <span>{{vm.totalPrice | currency:'€' }}</span>
+     </div>
+
+
+     <div class="row">
+
+     <div class="col-md-6">
+     <center>
+       <label style="color: blue;" translate="euroTicketDemoApp.buyTicket.cardData">Card Details</label>
+       </center>
+        <form class="form-inline" name="form" role="form" novalidate  show-validation>
+
+                <div class="form-group">
+                    <label style="width:150px;" class="control-label" for="cardNumber" translate="euroTicketDemoApp.buyTicket.card.cardNumber">First Name</label>
+                    <input type="number" class="form-control" id="firstName" name="cardNumber" placeholder="{{'euroTicketDemoApp.buyTicket.card.cardNumber' | translate}}"
+                           ng-model="vm.cardDetails.cardNumber" ng-minlength=5 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.cardNumber.$dirty && form.cardNumber.$invalid">
+                        <p class="help-block"
+                               ng-show="form.cardNumber.$error.required" translate="euroTicketDemoApp.buyTicket.messages.validate.cardNumber.required">
+    
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.cardNumber.$error.minlength" translate="euroTicketDemoApp.buyTicket.messages.validate.cardNumber.minlength">
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.cardNumber.$error.maxlength" translate="euroTicketDemoApp.buyTicket.messages.validate.cardNumber.maxlength">
+                            Your first name cannot be longer than 50 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:5px;">
+                    <label style="width:150px;" class="control-label" for="monthAndYear" translate="euroTicketDemoApp.buyTicket.card.monthAndYear">Month/Year</label>
+                    <input type="text" class="form-control" id="firstName" name="monthAndYear" placeholder="{{'euroTicketDemoApp.buyTicket.card.monthAndYear' | translate}}"
+                           ng-model="vm.cardDetails.monthAndYear" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.monthAndYear.$dirty && form.monthAndYear.$invalid">
+                        <p class="help-block"
+                               ng-show="form.monthAndYear.$error.required" translate="euroTicketDemoApp.buyTicket.messages.validate.monthAndYear.required">
+                        </p>
+                    </div>
+                </div>
+                  <div class="form-group" style="margin-top:5px;">
+                    <label style="width:150px;" class="control-label" for="cvc" translate="euroTicketDemoApp.buyTicket.card.cvc">CVC</label>
+                    <input type="number" class="form-control" id="firstName" name="cvc" placeholder="{{'euroTicketDemoApp.buyTicket.card.cvc' | translate}}"
+                           ng-model="vm.cardDetails.cvc" ng-minlength=3 ng-maxlength=3 required>
+                    <div ng-show="form.cvc.$dirty && form.cvc.$invalid">
+                        <p class="help-block"
+                               ng-show="form.cvc.$error.required" translate="euroTicketDemoApp.buyTicket.messages.validate.cvc.required">
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:5px;">
+                    <label style="width:150px;" class="control-label" for="cardName" translate="euroTicketDemoApp.buyTicket.card.cardName">Month/Year</label>
+                    <input type="text" class="form-control" id="firstName" name="cardName" placeholder="{{'euroTicketDemoApp.buyTicket.card.cardName' | translate}}"
+                           ng-model="vm.cardDetails.cardName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.cardName.$dirty && form.cardName.$invalid">
+                        <p class="help-block"
+                               ng-show="form.cardName.$error.required" translate="euroTicketDemoApp.buyTicket.messages.validate.cardName.required">
+                        </p>
+                    </div>
+                </div>
+                </form>
+                </div>
+     </div>
+     <br>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.backPreviousStep()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="euroTicketDemoApp.buyTicket.back">Back</span>
+        </button>
+        <button type="submit" ng-disabled="form.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="euroTicketDemoApp.buyTicket.payment">Save</span>
+        </button>
+    </div>
+    </div>
+</div>
 </div>
 
 <script>

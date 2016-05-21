@@ -24,7 +24,9 @@
             "homeTeam": "Home Team",
             "awayTeam": "Away Team",
             "matchGroup": "Match Group",
-            "phase": "Phase"
+            "phase": "Phase",
+            "game" : "Game",
+             "quantity" : "Quantity"
         }
     }
 }

@@ -16,15 +16,17 @@
             "detail": {
                 "title": "Ticket"
             },
-            "location": "Location",
-            "matchDate": "Match Date",
-            "unitPrice": "Unit Price",
-            "availableQtt": "Available Qtt",
-            "totalQtt": "Total Qtt",
+            "location": "Estádio",
+            "matchDate": "Data",
+            "unitPrice": "Preço",
+            "availableQtt": "Qtt Disponível",
+            "totalQtt": "Qtt Total",
             "homeTeam": "Home Team",
             "awayTeam": "Away Team",
-            "matchGroup": "Match Group",
-            "phase": "Phase"
+            "matchGroup": "Grupo",
+            "phase": "Fase",
+            "game" : "Jogo",
+            "quantity" : "Quantidade"
         }
     }
 }

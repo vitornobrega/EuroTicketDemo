@@ -3,6 +3,17 @@
         "buyTicket" : {
             "home": {
                 "title": "Buy Ticket"
+            },
+             "availableTickets" : "Available Tickets",
+              "addedTickets" : "Added Tickets",
+              "totalPrice" : "Total Price:",
+              "payment" : "Make Payment",
+              "cardData" : "Card Details",
+              "card" : {
+                "cardNumber"  :"Card Number",
+                "monthAndYear" : "Month/Year",
+                "cvc"  :"CVC",
+                "cardName" : "Name"
             }
         }
     }

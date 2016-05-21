@@ -3,7 +3,42 @@
         "buyTicket" : {
             "home": {
                 "title": "Comprar Bilhetes"
+            },
+            "availableTickets" : "Bilhetes Disponíveis",
+            "addedTickets" : "Bilhetes Adicionados",
+            "totalPrice" : "Preço Total:",
+            "payment" : "Efectuar Pagamento",
+            "cardData" : "Dados do Cartão",
+            "back" : "Voltar atrás",
+            "card" : {
+                "cardNumber"  :"Número do Cartão",
+                "monthAndYear" : "Mês/Ano",
+                "cvc"  :"CVC",
+                "cardName" : "Nome"
+            },
+             "messages": {
+            "error": {
+                "fail": "<strong>An error has occurred!</strong> Settings could not be saved.",
+                "emailexists": "<strong>E-mail is already in use!</strong> Please choose another one."
+            },
+            "success": "<strong>Settings saved!</strong>",
+            "validate": {
+                "cardNumber": {
+                    "required": "O número do cartão é obrigatório",
+                    "minlength": "Your first name is required to be at least 1 character",
+                    "maxlength": "Your first name cannot be longer than 50 characters"
+                },
+                "monthAndYear": {
+                    "required": "O Mês/Ano é obrigatório"
+                },
+                 "cvc": {
+                    "required": "O código CVC é obrigatório"
+                },
+                 "cardName": {
+                    "required": "O nome do cartão é obrigatório."
+                }
             }
+        }
         }
     }
 }
