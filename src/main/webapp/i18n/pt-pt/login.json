@@ -14,6 +14,9 @@
         },
         "password" : {
             "forgot": "Esqueceu-se da sua palavra-passe?"
-        }
+        },
+        "authentication"  :"Autenticação",
+        "success"  : "Login efectado com sucesso",
+        "failure"  : "Não foi possível efectuar o login"
     }
 }

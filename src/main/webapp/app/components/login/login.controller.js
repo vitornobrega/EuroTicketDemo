@@ -5,9 +5,9 @@
         .module('euroTicketDemoApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$rootScope', '$state', '$sessionStorage', '$timeout', 'Auth', '$uibModalInstance'];
+    LoginController.$inject = ['$rootScope', '$state', '$sessionStorage', '$timeout', 'Auth', '$uibModalInstance','Notification','$translate','$filter'];
 
-    function LoginController ($rootScope, $state, $sessionStorage, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $sessionStorage, $timeout, Auth, $uibModalInstance,Notification,$translate,$filter) {
         var vm = this;
 
         vm.authenticationError = false;
@@ -19,6 +19,8 @@
         vm.rememberMe = true;
         vm.requestResetPassword = requestResetPassword;
         vm.username = null;
+
+      
 
         $timeout(function (){angular.element('#username').focus();});
 
@@ -45,7 +47,8 @@
                     $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
                     $state.go('home');
                 }
-
+                Notification.success({positionY : 'bottom', title: 
+                    $translate.instant('login.authentication'), message: $translate.instant('login.success')});    
                 $rootScope.$broadcast('authenticationSuccess');
 
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
@@ -59,6 +62,8 @@
                 }
             }).catch(function () {
                 vm.authenticationError = true;
+                  Notification.error({positionY : 'bottom', title: 
+                    $translate.instant('login.authentication'), message: $translate.instant('login.failure')});    
             });
         }
 
@@ -71,5 +76,7 @@
             $uibModalInstance.dismiss('cancel');
             $state.go('requestReset');
         }
+
+    
     }
 })();
