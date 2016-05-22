@@ -38,7 +38,13 @@
                     "required": "O nome do cartão é obrigatório."
                 }
             }
-        }
-        }
-    }
+        },
+            "purchasedTickets0": "Pode comprar até 5 bilhetes",
+            "purchasedTickets1": "Pode comprar até 4 bilhetes",
+            "purchasedTickets2": "Pode comprar até 3 bilhetes",
+            "purchasedTickets3": "Pode comprar até 2 bilhetes",
+            "purchasedTickets4": "Pode comprar apenas mais um bilhete",
+            "purchasedTickets5": "Já atingido o limite máximo de bilhetes comprados (5)"
+       }
+   }
 }

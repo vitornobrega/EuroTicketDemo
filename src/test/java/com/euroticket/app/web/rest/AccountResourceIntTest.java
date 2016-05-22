@@ -26,6 +26,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+
+import java.math.BigDecimal;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -153,6 +155,7 @@ public class AccountResourceIntTest {
             "joe@example.com",      // e-mail
             true,                   // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -181,6 +184,7 @@ public class AccountResourceIntTest {
             "funky@example.com",    // e-mail
             true,                   // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -209,6 +213,7 @@ public class AccountResourceIntTest {
             "invalid",          // e-mail <-- invalid
             true,               // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -237,6 +242,7 @@ public class AccountResourceIntTest {
             "bob@example.com",  // e-mail
             true,               // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -265,6 +271,7 @@ public class AccountResourceIntTest {
             "",                 // e-mail <-- empty
             true,               // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -294,6 +301,7 @@ public class AccountResourceIntTest {
             "alice@example.com",    // e-mail
             true,                   // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -302,7 +310,7 @@ public class AccountResourceIntTest {
 
         // Duplicate login, different e-mail
         ManagedUserDTO duplicatedUser = new ManagedUserDTO(validUser.getId(), validUser.getLogin(), validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
-            "alicejr@example.com", true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
+            "alicejr@example.com", true, validUser.getLangKey(), validUser.getPurchasedTickets(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
         restMvc.perform(
@@ -335,6 +343,7 @@ public class AccountResourceIntTest {
             "john@example.com",     // e-mail
             true,                   // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -343,7 +352,7 @@ public class AccountResourceIntTest {
 
         // Duplicate e-mail, different login
         ManagedUserDTO duplicatedUser = new ManagedUserDTO(validUser.getId(), "johnjr", validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
-            validUser.getEmail(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
+            validUser.getEmail(), true, validUser.getLangKey(), validUser.getPurchasedTickets(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
         restMvc.perform(
@@ -375,6 +384,7 @@ public class AccountResourceIntTest {
             "badguy@example.com",   // e-mail
             true,                   // activated
             "en",               // langKey
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.ADMIN)),
             null,                   // createdDate
             null,                   // lastModifiedBy
@@ -402,7 +412,8 @@ public class AccountResourceIntTest {
             "One",                  // lastName
             "funky@example.com",    // e-mail
             true,                   // activated
-            "en",               // langKey
+            "en",               // langKey,
+            new BigDecimal("0"),
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
         );
 

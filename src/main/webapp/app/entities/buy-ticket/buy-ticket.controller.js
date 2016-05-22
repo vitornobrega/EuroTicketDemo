@@ -5,14 +5,16 @@
         .module('euroTicketDemoApp')
         .controller('BuyTicketController', BuyTicketController);
 
-    BuyTicketController.$inject = ['$scope', '$state','Ticket','Sale'];
+    BuyTicketController.$inject = ['$scope', '$state','Ticket','Sale','Principal','Notification','$translate'];
 
-    function BuyTicketController ($scope, $state,Ticket,Sale) {
+    function BuyTicketController ($scope, $state,Ticket,Sale,Principal,Notification,$translate) {
         var vm = this;  
         vm.availableTickets = [];
         vm.addedTickets = [];
         vm.sale = {};
+        vm.canBuy = true;
         vm.sale.payment = {};
+        vm.userAccount = null;
         vm.cardDetails = {};
         vm.processStep = 'tickets';  
         //vm.processStep = 'payment';    
@@ -22,6 +24,31 @@
                 vm.availableTickets = result;
             });
         };
+        Principal.identity().then(function(account) {
+            vm.userAccount = account;
+            debugger;
+            if(vm.userAccount.purchasedTickets != null) {
+                if(vm.userAccount.purchasedTickets < 5){
+                    var notificationMessage;
+                    if(vm.userAccount.purchasedTickets== 0)
+                        notificationMessage = 'euroTicketDemoApp.buyTicket.purchasedTickets0';
+                    else if(vm.userAccount.purchasedTickets== 1)
+                        notificationMessage = 'euroTicketDemoApp.buyTicket.purchasedTickets1';
+                    else if(vm.userAccount.purchasedTickets== 2)
+                        notificationMessage = 'euroTicketDemoApp.buyTicket.purchasedTickets2';
+                    else if(vm.userAccount.purchasedTickets== 3)
+                        notificationMessage = 'euroTicketDemoApp.buyTicket.purchasedTickets3';
+                    else if(vm.userAccount.purchasedTickets== 4)
+                        notificationMessage = 'euroTicketDemoApp.buyTicket.purchasedTickets4';
+
+                    Notification.primary({positionY : 'bottom', message: $translate.instant(notificationMessage)});
+                } else if(vm.userAccount.purchasedTickets == 5){
+                    vm.canBuy = false;
+                    Notification.error({positionY : 'bottom', message: $translate.instant('euroTicketDemoApp.buyTicket.purchasedTickets5')});
+                }
+
+            }
+        });
         vm.loadAllAvailableTickets();
 
         vm.addTicketToShoppingCart = function (ticket) {

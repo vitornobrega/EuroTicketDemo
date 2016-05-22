@@ -1,5 +1,6 @@
 package com.euroticket.app.service;
 
+import java.math.BigDecimal;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -77,7 +78,7 @@ public class SaleService {
 	        sale.setSaleDate(ZonedDateTime.now(ZoneId.systemDefault()));
 	        sale.setSaleStatus(saleStatus);
 	        sale.setUser(user);
-	      
+	        BigDecimal  purchasedTickets = new BigDecimal("0");
 	     
 	        Payment payment = paymentMapper.paymentDTOToPayment(saleDTO.getPayment());
 	        payment = paymentRepository.save(payment);
@@ -86,9 +87,12 @@ public class SaleService {
 	        
 	        List<Item> items = itemMapper.itemDTOsToItems(saleDTO.getItems());
 	        for(Item item : items) {
+	        	purchasedTickets.add(new BigDecimal(item.getQuantity()));
 	        	item.setSale(sale);
 	        }
+	        user.setPurchasedTickets(user.getPurchasedTickets().add(purchasedTickets));
 	        itemRepository.save(items);
+	        userRepository.save(user);
 	        SaleDTO result = saleMapper.saleToSaleDTO(sale);
 	   
 	        return result;

@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.time.ZonedDateTime;
@@ -49,6 +50,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 50)
     @Column(name = "last_name", length = 50)
     private String lastName;
+    
+    @Column(name = "purchased_tickets", precision=10, scale=2)
+    private BigDecimal purchasedTickets;
 
     @NotNull
     @Email
@@ -116,8 +120,18 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+    
+    
 
-    public String getLastName() {
+    public BigDecimal getPurchasedTickets() {
+		return purchasedTickets;
+	}
+
+	public void setPurchasedTickets(BigDecimal purchasedTickets) {
+		this.purchasedTickets = purchasedTickets;
+	}
+
+	public String getLastName() {
         return lastName;
     }
 

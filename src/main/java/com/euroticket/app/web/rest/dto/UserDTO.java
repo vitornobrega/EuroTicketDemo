@@ -6,6 +6,8 @@ import com.euroticket.app.domain.User;
 import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.*;
+
+import java.math.BigDecimal;
 import java.util.Set;
 import java.util.stream.Collectors;
 /**
@@ -32,6 +34,8 @@ public class UserDTO {
 
     @Size(min = 2, max = 5)
     private String langKey;
+    
+    private BigDecimal purchasedTickets;
 
     private Set<String> authorities;
 
@@ -40,13 +44,13 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this(user.getLogin(), user.getFirstName(), user.getLastName(),
-            user.getEmail(), user.getActivated(), user.getLangKey(),
+            user.getEmail(), user.getActivated(), user.getLangKey(),user.getPurchasedTickets(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String firstName, String lastName,
-        String email, boolean activated, String langKey, Set<String> authorities) {
+        String email, boolean activated, String langKey,BigDecimal purchasedTickets,  Set<String> authorities) {
 
         this.login = login;        
         this.firstName = firstName;
@@ -54,10 +58,21 @@ public class UserDTO {
         this.email = email;
         this.activated = activated;
         this.langKey = langKey;
+        this.purchasedTickets = purchasedTickets;
         this.authorities = authorities;
     }
+    
+    
 
-    public String getLogin() {
+    public BigDecimal getPurchasedTickets() {
+		return purchasedTickets;
+	}
+
+	public void setPurchasedTickets(BigDecimal purchasedTickets) {
+		this.purchasedTickets = purchasedTickets;
+	}
+
+	public String getLogin() {
         return login;
     }
 
