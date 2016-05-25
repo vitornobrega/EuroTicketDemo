@@ -9,6 +9,7 @@ import com.euroticket.app.security.SecurityUtils;
 import com.euroticket.app.service.util.RandomUtil;
 import com.euroticket.app.web.rest.dto.ManagedUserDTO;
 import java.time.ZonedDateTime;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -117,6 +118,7 @@ public class UserService {
         user.setFirstName(managedUserDTO.getFirstName());
         user.setLastName(managedUserDTO.getLastName());
         user.setEmail(managedUserDTO.getEmail());
+        user.setPurchasedTickets(new BigDecimal("0"));
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
         } else {
