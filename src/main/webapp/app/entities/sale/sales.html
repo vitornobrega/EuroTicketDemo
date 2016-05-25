@@ -39,7 +39,6 @@
                     <th><span translate="euroTicketDemoApp.sale.saleDate">Sale Date</span></th>
                     <th><span translate="euroTicketDemoApp.sale.saleStatus">Sale Status</span></th>
                     <th><span translate="euroTicketDemoApp.sale.payment">Payment</span></th>
-                    <th><span translate="euroTicketDemoApp.sale.user">User</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -47,14 +46,9 @@
                 <tr ng-repeat="sale in vm.sales track by sale.id">
                     <td><a ui-sref="sale-detail({id:sale.id})">{{sale.id}}</a></td>
                     <td>{{sale.saleDate | date:'medium'}}</td>
-                    <td>
-                        <a ui-sref="sale-status-detail({id:sale.saleStatusId})">{{sale.saleStatusId}}</a>
-                    </td>
+                    <td>{{sale.saleStatuNname}}</td>
                     <td>
                         <a ui-sref="payment-detail({id:sale.paymentId})">{{sale.paymentId}}</a>
-                    </td>
-                    <td>
-                        {{sale.userId}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

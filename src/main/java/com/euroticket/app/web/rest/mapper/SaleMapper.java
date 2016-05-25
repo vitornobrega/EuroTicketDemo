@@ -13,6 +13,7 @@ import java.util.List;
 public interface SaleMapper {
 
     @Mapping(source = "saleStatus.id", target = "saleStatusId")
+    @Mapping(source = "saleStatus.name", target = "saleStatusName")
     @Mapping(source = "payment", target = "payment")
   //  @Mapping(source = "payment.id", target = "paymentId")
     @Mapping(source = "user.id", target = "userId")

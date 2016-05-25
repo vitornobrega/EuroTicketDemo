@@ -18,11 +18,22 @@ public class SaleDTO implements Serializable {
     private ZonedDateTime saleDate;
 
 
-    private Long saleStatusId;
+    private Long saleStatusId;  
+    private String saleStatusName;
     private PaymentDTO payment;
     private Long userId;
     private List<ItemDTO> items;
-    public Long getId() {
+    
+    
+    public String getSaleStatusName() {
+		return saleStatusName;
+	}
+
+	public void setSaleStatusName(String saleStatusName) {
+		this.saleStatusName = saleStatusName;
+	}
+
+	public Long getId() {
         return id;
     }
 
