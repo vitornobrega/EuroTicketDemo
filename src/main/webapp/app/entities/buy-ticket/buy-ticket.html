@@ -33,7 +33,7 @@
                      <td>{{ticket.unitPrice | currency:'€' }}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button ng-click="vm.addTicketToShoppingCart(ticket)" type="submit"
+                            <button ng-disabled="!vm.canBuy" ng-click="vm.addTicketToShoppingCart(ticket)" type="submit"
                                     class="btn btn-success btn-sm">
                                 <span class="glyphicon glyphicon glyphicon-plus"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.add"></span>

@@ -24,9 +24,8 @@
                 vm.availableTickets = result;
             });
         };
-        Principal.identity().then(function(account) {
+        Principal.identity(true).then(function(account) {
             vm.userAccount = account;
-        
             if(vm.userAccount.purchasedTickets != null) {
                 if(vm.userAccount.purchasedTickets < 5){
                     var notificationMessage;
