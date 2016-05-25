@@ -87,7 +87,7 @@ public class SaleService {
 	        
 	        List<Item> items = itemMapper.itemDTOsToItems(saleDTO.getItems());
 	        for(Item item : items) {
-	        	purchasedTickets.add(new BigDecimal(item.getQuantity()));
+	        	purchasedTickets = purchasedTickets.add(new BigDecimal(item.getQuantity()));
 	        	item.setSale(sale);
 	        }
 	        user.setPurchasedTickets(user.getPurchasedTickets().add(purchasedTickets));
