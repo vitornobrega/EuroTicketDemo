@@ -92,8 +92,8 @@ public class SaleResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("team", "idexists", "A new sale cannot already have an ID")).body(null);
         }
         SaleDTO result = saleService.save(saleDTO);
-        return ResponseEntity.created(new URI("/api/teams/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("team", result.getId().toString()))
+        return ResponseEntity.created(new URI("/api/sales/" + result.getId()))
+            .headers(null)
             .body(result);
     }
 

@@ -26,7 +26,7 @@
         };
         Principal.identity().then(function(account) {
             vm.userAccount = account;
-            debugger;
+        
             if(vm.userAccount.purchasedTickets != null) {
                 if(vm.userAccount.purchasedTickets < 5){
                     var notificationMessage;
@@ -108,10 +108,13 @@
           //  $scope.$emit('euroTicketDemoApp:saleUpdate', result);
            // $uibModalInstance.close(result);
             vm.isSaving = false;
+            Notification.success({positionY : 'bottom', message: $translate.instant('euroTicketDemoApp.buyTicket.success')});
+            $state.go('sale');
         };
 
         var onSaveError = function () {
             vm.isSaving = false;
+             Notification.error({positionY : 'bottom', message: $translate.instant('euroTicketDemoApp.buyTicket.failure')});
         };
     }
 

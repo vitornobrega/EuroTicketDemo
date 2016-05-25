@@ -185,7 +185,7 @@
                   <div class="form-group" style="margin-top:5px;">
                     <label style="width:150px;" class="control-label" for="cvc" translate="euroTicketDemoApp.buyTicket.card.cvc">CVC</label>
                     <input type="number" class="form-control" id="firstName" name="cvc" placeholder="{{'euroTicketDemoApp.buyTicket.card.cvc' | translate}}"
-                           ng-model="vm.sale.payment.cvc" ng-minlength=3 ng-maxlength=3 required>
+                           ng-model="vm.sale.payment.cvc" ng-minlength=3 required>
                     <div ng-show="form.cvc.$dirty && form.cvc.$invalid">
                         <p class="help-block"
                                ng-show="form.cvc.$error.required" translate="euroTicketDemoApp.buyTicket.messages.validate.cvc.required">
