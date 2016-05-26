@@ -97,7 +97,7 @@
      </div>
      <div align="right">
      <button type="submit"
-            ng-disabled="vm.totalPrice == 0"
+            ng-disabled="vm.totalPrice == 0 || !vm.canBuy"
             ng-click="vm.goToPayment()"
             class="btn btn-info btn-sm">
             <span class="hidden-xs hidden-sm" translate="euroTicketDemoApp.buyTicket.payment"></span>

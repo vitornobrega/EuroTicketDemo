@@ -2,7 +2,7 @@
     "euroTicketDemoApp": {
         "sale" : {
             "home": {
-                "title": "Sales",
+                "title": "My Sales",
                 "createLabel": "Create a new Sale",
                 "createOrEditLabel": "Create or edit a Sale",
                 "search": "Search for Sale"
@@ -20,7 +20,9 @@
             "items": "Items",
             "saleStatus": "Sale Status",
             "payment": "Payment",
-            "user": "User"
+            "user": "User",
+             "ticketsNumber" : "# Tickets",
+             "totalPrice" : "Preço Total"
         }
     }
 }

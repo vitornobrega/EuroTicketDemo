@@ -74,10 +74,35 @@
         vm.onTicketQttChange = function (ticket) {
            // calculate total price
            var totalPrice = 0;
+           var totalQtt = 0;
            for(var i=0; i <vm.addedTickets.length; i++) {
+                totalQtt+=vm.addedTickets[i].quantity;
                 totalPrice += vm.addedTickets[i].quantity * vm.addedTickets[i].unitPrice; 
            }
            vm.totalPrice = totalPrice;
+
+           if(totalQtt + vm.userAccount.purchasedTickets > 5) {
+                  vm.canBuy = false;
+                  var remainingTickets = 5 - vm.userAccount.purchasedTickets;
+                  var remainingMsg = null;
+                  if(remainingTickets == 5) {
+                        remainingMsg = 'euroTicketDemoApp.buyTicket.remainingTickets5';
+                  } else if(remainingTickets == 4){
+                        remainingMsg = 'euroTicketDemoApp.buyTicket.remainingTickets4';
+                  } else if(remainingTickets == 3){
+                        remainingMsg = 'euroTicketDemoApp.buyTicket.remainingTickets3';
+                  } else if(remainingTickets == 2){
+                        remainingMsg = 'euroTicketDemoApp.buyTicket.remainingTickets2';
+                  } else if(remainingTickets == 1){
+                        remainingMsg = 'euroTicketDemoApp.buyTicket.remainingTickets1';
+                  }
+                  Notification.error({
+                        positionY : 'bottom', 
+                        message: $translate.instant(remainingMsg)
+                    });
+           } else {
+                vm.canBuy = true;
+           }
         };
 
         vm.goToPayment = function () {

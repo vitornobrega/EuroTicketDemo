@@ -13,6 +13,7 @@ import java.util.List;
 public interface ItemMapper {
 
     @Mapping(source = "ticket.id", target = "ticketId")
+    @Mapping(source = "ticket.unitPrice", target = "unitPrice")
     @Mapping(source = "sale.id", target = "saleId")
     ItemDTO itemToItemDTO(Item item);
 

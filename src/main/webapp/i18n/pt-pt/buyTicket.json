@@ -42,6 +42,11 @@
                 }
             }
         },
+            "remainingTickets5": "Só pode comprar 5 bilhetes",
+            "remainingTickets4": "Só pode comprar 4 bilhetes",
+            "remainingTickets3": "Só pode comprar 3 bilhetes",
+            "remainingTickets2": "Só pode comprar 2 bilhetes",
+            "remainingTickets1": "Só pode comprar 1 bilhete",
             "purchasedTickets0": "Pode comprar até 5 bilhetes",
             "purchasedTickets1": "Pode comprar até 4 bilhetes",
             "purchasedTickets2": "Pode comprar até 3 bilhetes",

@@ -1,6 +1,7 @@
 package com.euroticket.app.web.rest.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -15,10 +16,20 @@ public class ItemDTO implements Serializable {
 
     private Integer quantity;
 
-
+    private BigDecimal unitPrice;
     private Long ticketId;
     private Long saleId;
-    public Long getId() {
+    
+    
+    public BigDecimal getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(BigDecimal unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public Long getId() {
         return id;
     }
 
