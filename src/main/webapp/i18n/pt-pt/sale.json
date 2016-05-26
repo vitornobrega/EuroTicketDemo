@@ -14,15 +14,16 @@
                 "question": "Tem a certeza que pretende eliminar o(a) Sale {{ id }}?"
             },
             "detail": {
-                "title": "Sale"
+                "title": "A minha Compra"
             },
-            "saleDate": "Sale Date",
+            "saleDate": "Data de Compra",
             "items": "Items",
-            "saleStatus": "Sale Status",
+            "saleStatus": "Estado do Pagamento",
             "payment": "Payment",
             "user": "User",
             "ticketsNumber" : "# Bilhetes",
-             "totalPrice" : "Preço Total"
+             "totalPrice" : "Preço Total",
+               "paymentData" : "Dados Pagamento"
         }
     }
 }

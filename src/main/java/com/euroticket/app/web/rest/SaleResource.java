@@ -136,7 +136,7 @@ public class SaleResource {
     @Transactional(readOnly = true)
     public List<SaleDTO> getAllSales() {
         log.debug("REST request to get all Sales");
-        List<Sale> sales = saleRepository.findAll();
+        List<Sale> sales = saleRepository.findByUserIsCurrentUser();
         return saleMapper.salesToSaleDTOs(sales);
     }
 
@@ -151,14 +151,19 @@ public class SaleResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<SaleDTO> getSale(@PathVariable Long id) {
-        log.debug("REST request to get Sale : {}", id);
-        Sale sale = saleRepository.findOne(id);
-        SaleDTO saleDTO = saleMapper.saleToSaleDTO(sale);
-        return Optional.ofNullable(saleDTO)
-            .map(result -> new ResponseEntity<>(
-                result,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    	try {
+            log.debug("REST request to get Sale : {}", id);
+            SaleDTO saleDTO = saleService.get(id);
+
+            return Optional.ofNullable(saleDTO)
+                .map(result -> new ResponseEntity<>(
+                    result,
+                    HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    	} catch(Exception e) {
+    		 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+
     }
 
     /**

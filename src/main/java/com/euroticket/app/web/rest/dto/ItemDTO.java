@@ -2,6 +2,7 @@ package com.euroticket.app.web.rest.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -16,12 +17,132 @@ public class ItemDTO implements Serializable {
 
     private Integer quantity;
 
-    private BigDecimal unitPrice;
     private Long ticketId;
+    private String ticketLocation;
+
+
+    private ZonedDateTime ticketMatchDate;
+
+
+    private BigDecimal unitPrice;
+
+
+    private BigDecimal ticketAvailableQtt;
+
+
+    private BigDecimal ticketTotalQtt;
+
+
+    private Long ticketHomeTeamId;
+    private Long ticketAwayTeamId;
+    private Long ticketMatchGroupId;
+    private Long ticketPhaseId;
+    
+    private String ticketHomeTeamName;
+    private String ticketAwayTeamName;
+    private String ticketPhaseName;
+    private String ticketMatchGroupName;
     private Long saleId;
     
     
-    public BigDecimal getUnitPrice() {
+    
+    public String getTicketLocation() {
+		return ticketLocation;
+	}
+
+	public void setTicketLocation(String ticketLocation) {
+		this.ticketLocation = ticketLocation;
+	}
+
+	public ZonedDateTime getTicketMatchDate() {
+		return ticketMatchDate;
+	}
+
+	public void setTicketMatchDate(ZonedDateTime ticketMatchDate) {
+		this.ticketMatchDate = ticketMatchDate;
+	}
+
+	public BigDecimal getTicketAvailableQtt() {
+		return ticketAvailableQtt;
+	}
+
+	public void setTicketAvailableQtt(BigDecimal ticketAvailableQtt) {
+		this.ticketAvailableQtt = ticketAvailableQtt;
+	}
+
+	public BigDecimal getTicketTotalQtt() {
+		return ticketTotalQtt;
+	}
+
+	public void setTicketTotalQtt(BigDecimal ticketTotalQtt) {
+		this.ticketTotalQtt = ticketTotalQtt;
+	}
+
+	public Long getTicketHomeTeamId() {
+		return ticketHomeTeamId;
+	}
+
+	public void setTicketHomeTeamId(Long ticketHomeTeamId) {
+		this.ticketHomeTeamId = ticketHomeTeamId;
+	}
+
+	public Long getTicketAwayTeamId() {
+		return ticketAwayTeamId;
+	}
+
+	public void setTicketAwayTeamId(Long ticketAwayTeamId) {
+		this.ticketAwayTeamId = ticketAwayTeamId;
+	}
+
+	public Long getTicketMatchGroupId() {
+		return ticketMatchGroupId;
+	}
+
+	public void setTicketMatchGroupId(Long ticketMatchGroupId) {
+		this.ticketMatchGroupId = ticketMatchGroupId;
+	}
+
+	public Long getTicketPhaseId() {
+		return ticketPhaseId;
+	}
+
+	public void setTicketPhaseId(Long ticketPhaseId) {
+		this.ticketPhaseId = ticketPhaseId;
+	}
+
+	public String getTicketHomeTeamName() {
+		return ticketHomeTeamName;
+	}
+
+	public void setTicketHomeTeamName(String ticketHomeTeamName) {
+		this.ticketHomeTeamName = ticketHomeTeamName;
+	}
+
+	public String getTicketAwayTeamName() {
+		return ticketAwayTeamName;
+	}
+
+	public void setTicketAwayTeamName(String ticketAwayTeamName) {
+		this.ticketAwayTeamName = ticketAwayTeamName;
+	}
+
+	public String getTicketPhaseName() {
+		return ticketPhaseName;
+	}
+
+	public void setTicketPhaseName(String ticketPhaseName) {
+		this.ticketPhaseName = ticketPhaseName;
+	}
+
+	public String getTicketMatchGroupName() {
+		return ticketMatchGroupName;
+	}
+
+	public void setTicketMatchGroupName(String ticketMatchGroupName) {
+		this.ticketMatchGroupName = ticketMatchGroupName;
+	}
+
+	public BigDecimal getUnitPrice() {
 		return unitPrice;
 	}
 

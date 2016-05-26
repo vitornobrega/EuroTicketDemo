@@ -18,11 +18,13 @@ import com.euroticket.app.domain.Payment;
 import com.euroticket.app.domain.Sale;
 import com.euroticket.app.domain.SaleStatus;
 import com.euroticket.app.domain.Team;
+import com.euroticket.app.domain.Ticket;
 import com.euroticket.app.domain.User;
 import com.euroticket.app.repository.ItemRepository;
 import com.euroticket.app.repository.PaymentRepository;
 import com.euroticket.app.repository.SaleRepository;
 import com.euroticket.app.repository.SaleStatusRepository;
+import com.euroticket.app.repository.TicketRepository;
 import com.euroticket.app.repository.UserRepository;
 import com.euroticket.app.repository.search.TeamSearchRepository;
 import com.euroticket.app.security.SecurityUtils;
@@ -56,6 +58,9 @@ public class SaleService {
 	    private SaleRepository saleRepository;
 	    
 	    @Inject
+	    private TicketRepository ticketRepository;
+	    
+	    @Inject
 	    private ItemRepository itemRepository;
 
 	    @Inject
@@ -87,7 +92,14 @@ public class SaleService {
 	        
 	        List<Item> items = itemMapper.itemDTOsToItems(saleDTO.getItems());
 	        for(Item item : items) {
+	        	Long ticketId = item.getTicket().getId();
+	        	Ticket ticketToUpdate = ticketRepository.findOne(ticketId);
 	        	purchasedTickets = purchasedTickets.add(new BigDecimal(item.getQuantity()));
+	        	if(ticketToUpdate != null) {
+	        		ticketToUpdate.setAvailableQtt(ticketToUpdate.getAvailableQtt().subtract(purchasedTickets));
+		        	ticketRepository.save(ticketToUpdate);
+	        	}
+	        	
 	        	item.setSale(sale);
 	        }
 	        user.setPurchasedTickets(user.getPurchasedTickets().add(purchasedTickets));
@@ -98,4 +110,17 @@ public class SaleService {
 	        return result;
 	        
 	    }
+
+
+	public SaleDTO get(Long id) {
+		SaleDTO result = null;
+		try {
+			  Sale sale = saleRepository.findUserSaleById(id);
+		      result = saleMapper.saleToSaleDTO(sale);
+		} catch(Exception e) {
+			
+		}
+      
+		return result;
+	}
 }

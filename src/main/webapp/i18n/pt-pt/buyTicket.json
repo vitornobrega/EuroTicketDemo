@@ -9,6 +9,8 @@
             "totalPrice" : "Preço Total:",
             "payment" : "Efectuar Pagamento",
             "cardData" : "Dados do Cartão",
+            "paymentData" : "Dados do Pagamento",
+             "status" : "Estado",
             "back" : "Voltar atrás",
             "card" : {
                 "cardNumber"  :"Número do Cartão",

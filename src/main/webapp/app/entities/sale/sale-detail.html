@@ -1,29 +1,74 @@
 
 <div>
-    <h2><span translate="euroTicketDemoApp.sale.detail.title">Sale</span> {{vm.sale.id}}</h2>
+    <h2><span translate="euroTicketDemoApp.sale.detail.title">Sale</span> # {{vm.sale.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="euroTicketDemoApp.sale.saleDate">Sale Date</span></dt>
+    <div class="table-responsive" style="height:170px;">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                 <th style="width:100px;"><span translate="euroTicketDemoApp.ticket.quantity">Quantity</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.location">Location</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchDate">Match Date</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.availableQtt">Available Qtt</span></th>
+                    <!--<th><span translate="euroTicketDemoApp.ticket.totalQtt">Total Qtt</span></th> -->
+                    <th><span translate="euroTicketDemoApp.ticket.game">Game</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.phase">Phase</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.matchGroup">Match Group</span></th>
+                    <th><span translate="euroTicketDemoApp.ticket.unitPrice">Unit Price</span></th>
+              
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.sale.items | orderBy:'+id'">
+                <td>{{item.quantity}}</td>
+                    <td>{{item.ticketLocation}}</td>
+                    <td>{{item.ticketMatchDate | date:'medium'}}</td>
+                    <td>{{item.ticketAvailableQtt}}</td>
+                  <!--  <td>{{ticket.totalQtt}}</td> -->
+                    <td>{{item.ticketHomeTeamName}} - {{item.ticketAwayTeamName}}</td>
+                    <td>{{item.ticketPhaseName}}</td>
+                    <td>{{item.ticketMatchGroupName}}</td>
+                     <td>{{item.unitPrice | currency:'€' }}</td>
+                    <td class="text-right">
+                   
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     <center><h3><span translate="euroTicketDemoApp.buyTicket.paymentData">Sale</span> </h3></center>
+        <dl class="dl-horizontal">
+        <dt><span translate="euroTicketDemoApp.buyTicket.status">Sale Date</span>:</dt>
         <dd>
-            <span>{{vm.sale.saleDate | date:'medium'}}</span>
+              <span>{{vm.sale.saleStatusName}}</span>
         </dd>
-        <hr>
-        <dt><span translate="euroTicketDemoApp.sale.saleStatus">Sale Status</span></dt>
+        <hr style="margin-top:10px; margin-bottom:10px;">
+        <dt><span translate="euroTicketDemoApp.buyTicket.card.cardNumber">Sale Date</span>:</dt>
         <dd>
-            <a ui-sref="sale-status-detail({id:vm.sale.saleStatusId})">{{vm.sale.saleStatusId}}</a>
+              <span>{{vm.sale.payment.cardNumber}}</span>
         </dd>
-        <hr>
-        <dt><span translate="euroTicketDemoApp.sale.payment">Payment</span></dt>
+        <hr style="margin-top:10px; margin-bottom:10px;">
+           <dt><span translate="euroTicketDemoApp.buyTicket.card.monthAndYear">Sale Date</span>:</dt>
         <dd>
-            <a ui-sref="payment-detail({id:vm.sale.paymentId})">{{vm.sale.paymentId}}</a>
+           <span>{{vm.sale.payment.monthAndYear}}</span>
         </dd>
-        <hr>
-        <dt><span translate="euroTicketDemoApp.sale.user">User</span></dt>
+        <hr style="margin-top:10px; margin-bottom:10px;">
+           <dt><span translate="euroTicketDemoApp.buyTicket.card.cvc">Sale Date</span>:</dt>
         <dd>
-            {{vm.sale.userId}}
+            <span>{{vm.sale.payment.cvc}}</span>
         </dd>
-        <hr>
+        <hr style="margin-top:10px; margin-bottom:10px;">
+           <dt><span translate="euroTicketDemoApp.buyTicket.card.cardName">Sale Date</span>:</dt>
+        <dd>
+            <span>{{vm.sale.payment.cardName}}</span>
+        </dd>
+        <hr style="margin-top:10px; margin-bottom:10px;">
+        
     </dl>
+          <div align="right">
+     <label translate="euroTicketDemoApp.buyTicket.totalPrice">Total Price</label>
+     <span>{{vm.sale.totalPrice | currency:'€' }}</span>
+     </div>
 
     <button type="submit"
             onclick="window.history.back()"

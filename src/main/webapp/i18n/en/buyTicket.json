@@ -9,6 +9,8 @@
               "totalPrice" : "Total Price:",
               "payment" : "Make Payment",
               "cardData" : "Card Details",
+              "paymentData" : "Dados do Pagamento",
+                 "status" : "Estado",
               "card" : {
                 "cardNumber"  :"Card Number",
                 "monthAndYear" : "Month/Year",

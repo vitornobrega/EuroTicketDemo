@@ -14,7 +14,7 @@
                 "question": "Are you sure you want to delete Sale {{ id }}?"
             },
             "detail": {
-                "title": "Sale"
+                "title": "My Sale"
             },
             "saleDate": "Sale Date",
             "items": "Items",

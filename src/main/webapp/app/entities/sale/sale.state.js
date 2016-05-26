@@ -27,6 +27,7 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('sale');
                     $translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('ticket');
                     return $translate.refresh();
                 }]
             }
@@ -48,6 +49,8 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('sale');
+                      $translatePartialLoader.addPart('buyTicket');
+                      $translatePartialLoader.addPart('ticket');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Sale', function($stateParams, Sale) {
