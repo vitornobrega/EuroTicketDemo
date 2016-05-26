@@ -106,6 +106,7 @@ public class UserService {
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);
         newUser.setAuthorities(authorities);
+        newUser.setPurchasedTickets(new BigDecimal(0));
         userRepository.save(newUser);
         userSearchRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
@@ -118,7 +119,7 @@ public class UserService {
         user.setFirstName(managedUserDTO.getFirstName());
         user.setLastName(managedUserDTO.getLastName());
         user.setEmail(managedUserDTO.getEmail());
-        user.setPurchasedTickets(new BigDecimal("0"));
+        user.setPurchasedTickets(new BigDecimal(0));
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
         } else {
